@@ -13,7 +13,7 @@ show_missing = true
 skip_empty = true
 
 [tool.poetry]
-name = "samplepythontoml"
+name = "sample-python-toml"
 version = "0.1.0"
 description = ""
 authors = ["Your Name <you@example.com>"]
