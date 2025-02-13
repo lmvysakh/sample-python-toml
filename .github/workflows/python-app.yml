@@ -87,14 +87,6 @@ jobs:
           fi
         shell: bash          
         
-     # - name: Build application solution tried
-      #  run: |
-       #     if [[ "$(uname -m)" == "arm64" ]]; then
-        #      CFLAGS="-arch x86_64 -arch arm64" LDFLAGS="-arch x86_64 -arch arm64" poetry run pyinstaller --target-architecture universal2 --add-data "msg.html:ksso" --onefile main.py --name ksso-${{ runner.os }}-arm64-0.1.0
-         #   else
-          #    poetry run pyinstaller --onefile main.py --name ksso-${{ runner.os }}-x86_64-0.1.0
-          #  fi
-       # shell: bash
           
       - name: Upload artifact
         uses: actions/upload-artifact@v4
