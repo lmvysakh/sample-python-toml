@@ -3,7 +3,7 @@ name: KSSO with partial user
 on:
   push:
     branches:
-      - main
+      - poetry-issue
   pull_request:
 jobs:
 
