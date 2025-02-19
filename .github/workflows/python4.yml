@@ -30,24 +30,24 @@ jobs:
       - name: Build executable
         if: runner.os != 'macOS'
         run: |
-          pyinstaller --onefile --paths=app main.py 
+          pyinstaller --onefile --distpath dist main.py
 
       - name: Build macOS universal executable
         if: runner.os == 'macOS'
         run: |
-           pyinstaller --onefile --paths=app --target-arch universal2 main.py
+          pyinstaller --onefile --distpath dist --target-arch universal2 main.py
 
       - name: Archive executable (Linux)
         if: runner.os == 'Linux'
-        run: tar -czvf dist/linux-build.tar.gz dist/app
+        run: tar -czvf dist/linux-build.tar.gz dist/main
 
       - name: Archive executable (macOS)
         if: runner.os == 'macOS'
-        run: tar -czvf dist/macos-build.tar.gz dist/app
+        run: tar -czvf dist/macos-build.tar.gz dist/main
 
       - name: Archive executable (Windows)
         if: runner.os == 'Windows'
-        run: Compress-Archive -Path dist\app.exe -DestinationPath dist\windows-build.zip
+        run: Compress-Archive -Path dist\main.exe -DestinationPath dist\windows-build.zip
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
