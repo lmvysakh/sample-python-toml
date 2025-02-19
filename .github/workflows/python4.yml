@@ -30,12 +30,12 @@ jobs:
       - name: Build executable
         if: runner.os != 'macOS'
         run: |
-          pyinstaller --onefile --paths=app app/app.py 
+          pyinstaller --onefile --paths=app main.py 
 
       - name: Build macOS universal executable
         if: runner.os == 'macOS'
         run: |
-           pyinstaller --onefile --paths=app --target-arch universal2 app/app.py
+           pyinstaller --onefile --paths=app --target-arch universal2 main.py
 
       - name: Archive executable (Linux)
         if: runner.os == 'Linux'
