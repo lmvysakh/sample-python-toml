@@ -3,7 +3,7 @@ name: KSSO with full user
 on:
   push:
     branches:
-      - poetry-issue
+      - poetry-issue 
   pull_request:
 jobs:
 
