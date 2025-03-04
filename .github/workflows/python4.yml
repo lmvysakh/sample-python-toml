@@ -37,6 +37,31 @@ jobs:
         run: |
           pyinstaller --onefile --distpath dist --target-arch universal2 main.py
 
+          if [ ! -f dist/main ]; then
+                echo "Build failed: dist/main `.github/workflows/python4.yml` file:
+          
+           not found"
+                exit 1
+              fi
+
+# - name: Build macOSmain.py` file exists and is correctly built.
+
+# Update the universal executable
+#   if: runner.os == 'macos-latest'
+#   run: |
+#     pyinstaller --onefile --distpath dist --target-arch universal2 main.py
+#     if [ ! -f dist/main ]; then
+#       echo "Build failed: dist/main `.github/workflows/python4.yml` file:
+
+#  not found"
+#       exit 1
+#     fi
+
+# - name: Archive executable (macOS)
+#   if: runner.os == 'macOS'
+#   run: tar -czvf dist/macos-build.tar.gz dist/main
+  
+
       - name: Archive executable (Linux)
         if: runner.os == 'Linux'
         run: tar -czvf dist/linux-build.tar.gz dist/main
