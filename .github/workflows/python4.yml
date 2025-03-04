@@ -35,6 +35,7 @@ jobs:
       - name: Build macOS universal executable
         if: runner.os == 'macOS'
         run: |
+          os_arch=$(echo ${{ runner.arch }} | tr '[:upper:]' '[:lower:]')
           pyinstaller --onefile --distpath dist --target-arch universal2 main.py
 
       - name: Archive executable (Linux)
