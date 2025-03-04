@@ -33,7 +33,7 @@ jobs:
           pyinstaller --onefile --distpath dist main.py
 
       - name: Build macOS universal executable
-        if: runner.os == 'macOS'
+        if: runner.os == 'macos-latest'
         run: |
           pyinstaller --onefile --distpath dist --target-arch universal2 main.py
 
