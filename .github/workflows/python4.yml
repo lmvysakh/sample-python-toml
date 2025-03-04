@@ -36,7 +36,7 @@ jobs:
         if: runner.os == 'macOS'
         run: |
           os_arch=$(echo ${{ runner.arch }} | tr '[:upper:]' '[:lower:]')
-          pyinstaller --onefile --distpath dist --target-arch universal2 main.py
+          pyinstaller --onefile --distpath dist --target-arch x86_64 main.py
 
       - name: Archive executable (Linux)
         if: runner.os == 'Linux'
